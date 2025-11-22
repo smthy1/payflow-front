@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import DefaultInput from '../../components/DefaultInput'
-import DefaulButton from '../../components/DefaultButton'
-import { registerService } from '../../services/auth/auth.services'
-import axios from 'axios'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import DefaultInput from '../../components/DefaultInput';
+import DefaulButton from '../../components/DefaultButton';
+import { registerService } from '../../services/auth/auth.services';
+import axios from 'axios';
 
 const RegisterPage: React.FC = () => {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ const RegisterPage: React.FC = () => {
         try {
             const response = await registerService({ name: name, email: email, password: password });
             if (response)
-            setError("")
+            setError("");
             setResult(JSON.stringify(response));
 
             navigate("/home");
@@ -62,7 +62,7 @@ const RegisterPage: React.FC = () => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default RegisterPage;

@@ -22,15 +22,15 @@ const HomePage: React.FC = () => {
             className="px-6 py-3 text-lg bg-fuchsia-600 rounded-xl font-medium
               hover:bg-fuchsia-800 transition shadow-lg"
           >
-            Acessar Dashboard
+            Acesse agora
           </Link>
 
           <Link
-            to="/transacoes"
+            to="/register"
             className="px-6 py-3 text-lg border border-fuchsia-600 rounded-xl
               hover:bg-fuchsia-600/40 transition"
           >
-            Ver Transações
+            Criar Conta
           </Link>
         </div>
       </main>

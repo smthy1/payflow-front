@@ -20,10 +20,10 @@ export const registerUserSchema = z.object({
         .max(40, 'A senha deve ter no máximo 50 caracteres')
         .refine(pass => !pass.includes(' '), { error: 'A senha não pode conter espaços' })
         .regex(
-            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_\-+=\[\]\/\\]).*$/,
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).*$/,
             'A senha deve conter ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caractere especial'
         )
-});
+    });
 
 
 export type LoginUserInput = z.infer<typeof loginUserSchema>;
