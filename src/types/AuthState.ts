@@ -1,7 +1,11 @@
 import type { PayloadUser } from "./User";
 
-export interface AuthState {
+export interface AuthStateMe {
     user: PayloadUser | null;
-    loading: boolean;
+    loadingUser: boolean;
     refetch: () => Promise<void>;
+}
+
+export interface AuthResponse {
+    message: string;
 }

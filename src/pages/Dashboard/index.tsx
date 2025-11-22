@@ -1,25 +1,25 @@
 import React from "react";
-import BalanceCard from "../../components/BalanceCard";
-import Header from "../../components/Header";
-import { useAuth } from "../../hooks/useAuth";
+import BalanceCard from "@/components/BalanceCard";
+import Header from "@/components/Header";
+import { useAuthMe } from "@/hooks/useAuthMe";
+import { useGetUserBalance } from "@/hooks/useGetUserBalance";
 
 
 const Dashboard: React.FC = () => {
-  const { user, loading } = useAuth();
+  const { user, loadingUser } = useAuthMe();
+  const { balance, loadingBalance } = useGetUserBalance();
 
-  console.log("useAuth: ", { user, loading });
-
-    if (loading) {
+    if (loadingUser || loadingBalance) {
         return (
             <div className="min-h-screen bg-gray-950 text-gray-100 flex">
                 <div className="flex-1 flex flex-col">
                     <Header />
                     <main className="flex-1 p-6 md:p-10">
                         <h1 className="text-4xl font-extrabold mb-8 text-white">
-                            Olá, <span className="text-fuchsia-500 animate-pulse">carregando...</span>
+                            Olá, <span className="text-fuchsia-500 animate-pulse">Carregando...</span>
                         </h1>
                         <section className="mb-10">
-                            <BalanceCard balance={0}  />
+                            <BalanceCard balance={"Carrregando.."}  />
                         </section>
                     </main>
                 </div>
@@ -27,22 +27,17 @@ const Dashboard: React.FC = () => {
         );
     }
 
-    if (!user) {
-        return <div>Erro de autenticação. Faça login novamente.</div>;
-    }
-    const currentBalance = 1545.92;
-
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 flex">
         <div className="flex-1 flex flex-col">
             <Header />
             <main className="flex-1 p-6 md:p-10">
                 <h1 className="text-4xl font-extrabold mb-8 text-white">
-                    Olá,<span className="text-fuchsia-500">{" "}{user.name}</span>
+                    Olá,<span className="text-fuchsia-500">{" "}{user!.name}</span>
                 </h1>
                 
                 <section className="mb-10">
-                    <BalanceCard balance={currentBalance} />
+                    <BalanceCard balance={ balance! } />
                 </section>
 
                 <hr className="border-gray-800 my-8" />

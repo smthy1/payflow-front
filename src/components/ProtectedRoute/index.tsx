@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuthMe } from "@/hooks/useAuthMe";
 
 
 const ProtectedRoute = () => {
-    const { user, loading } = useAuth();
+    const { user, loadingUser } = useAuthMe();
 
-    if(loading) return <p>Carregando...</p>;
+    if(loadingUser) return <p>Carregando...</p>;
     if(!user) return <Navigate to = '/login' replace />;
 
     return <Outlet />;

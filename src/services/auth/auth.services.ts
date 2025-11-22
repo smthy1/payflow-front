@@ -7,7 +7,7 @@ const loginService = async (userInput: LoginUserInput) => {
     const res = await api.post("/auth/login", userInput);
     if (!res) return { error: "Erro ao realizar login" };
 
-    return res.data;
+    return res.data; 
 };
 
 const registerService = async (userInput: RegisterUserInput) => {

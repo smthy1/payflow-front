@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
-import api from "../services/api";
-import type { AuthState } from "../types/AuthState";
-import type { PayloadUser } from "../types/User";
+import api from "@/services/api";
+import type { AuthStateMe } from "@/types/AuthState";
+import type { PayloadUser } from "@/types/User";
 
 
-export const useAuth = (): AuthState => {
+
+export const useAuthMe = (): AuthStateMe => {
     const [user, setUser] = useState<PayloadUser | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loadingUser, setLoadingUser] = useState<boolean>(true);
 
     const loadUser = async () => {
         try {
             const res = await api.get('/auth/me');
-            //console.log(res);
+
             setUser(res.data.user);
         } catch {
             setUser(null);
         } finally {
-            setLoading(false);
+            setLoadingUser(false);
         }
     };
 
@@ -28,5 +29,5 @@ export const useAuth = (): AuthState => {
         await loadUser();
     };
 
-    return { user, loading, refetch };
+    return { user, loadingUser, refetch };
 };

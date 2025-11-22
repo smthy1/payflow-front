@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DefaultInput from '../../components/DefaultInput';
-import DefaulButton from '../../components/DefaultButton';
-import { registerService } from '../../services/auth/auth.services';
+import DefaultInput from '@/components/DefaultInput';
+import DefaulButton from '@/components/DefaultButton';
+import { registerService } from '@/services/auth/auth.services';
 import axios from 'axios';
 
 const RegisterPage: React.FC = () => {

@@ -11,9 +11,9 @@ const App: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                <Route path="/home" element={<HomePage />} />
                 
                 <Route element ={<ProtectedRoute />} >
                     <Route path="/dashboard" element={<Dashboard />} />

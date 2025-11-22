@@ -25,6 +25,12 @@ export const registerUserSchema = z.object({
         )
     });
 
+export const authResponseSchema = z.object({
+    message: z.string(),
+    loadingAuth: z.boolean()
+});
+
 
 export type LoginUserInput = z.infer<typeof loginUserSchema>;
 export type RegisterUserInput = z.infer<typeof registerUserSchema>;
+export type AuthResponse = z.infer<typeof authResponseSchema>;

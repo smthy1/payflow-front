@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DefaultInput from '../../components/DefaultInput';
-import DefaulButton from '../../components/DefaultButton';
-import { loginService } from '../../services/auth/auth.services';
+import DefaultInput from '@/components/DefaultInput';
+import DefaulButton from '@/components/DefaultButton';
+import { loginService } from '@/services/auth/auth.services';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuthMe } from '@/hooks/useAuthMe';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
 
   const [error, setError] = useState<string>("");
 
-  const { refetch } = useAuth();
+  const { refetch } = useAuthMe();
 
 
   const handleSubmit = async (e: React.FormEvent) => {

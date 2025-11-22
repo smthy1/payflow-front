@@ -1,6 +1,6 @@
 import React from "react";
 
-const BalanceCard: React.FC<{ balance: number }> = ({ balance }) => {
+const BalanceCard: React.FC<{ balance: string }> = ({ balance }) => {
   return (
         <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl w-full max-w-lg transition-transform transform hover:scale-[1.02]">
             <div className="flex justify-between items-start mb-4">
@@ -13,7 +13,7 @@ const BalanceCard: React.FC<{ balance: number }> = ({ balance }) => {
                 {balance}
             </p>
 
-            <button className="mt-4 px-4 py-2 bg-fuchsia-600 rounded-lg text-sm font-medium hover:bg-fuchsia-700 transition">
+            <button className="hover:cursor-pointer mt-4 px-4 py-2 bg-fuchsia-600 rounded-lg text-sm font-medium hover:bg-fuchsia-800 transition">
                 Ver Extrato
             </button>
         </div>
